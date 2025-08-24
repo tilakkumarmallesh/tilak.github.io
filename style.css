@@ -1730,3 +1730,154 @@ section {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* Trailhead Achievements Section */
+.trailhead-achievements {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--color-bg-1), var(--color-bg-3));
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.achievement-card {
+    background: var(--color-surface);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-border);
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    color: var(--color-primary);
+}
+
+.card-header h3 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.cert-count, .superbadge-count {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.label {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.cert-list {
+    space-y: 0.75rem;
+}
+
+.cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cert-name {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.cert-status.active {
+    background: #10b981;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.superbadge-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.superbadge-tag {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-teal-600));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number, .stat-rank {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.stat-label {
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+}
+
+.trailhead-link {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-teal-600));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.trailhead-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.trailhead-link svg {
+    width: 16px;
+    height: 16px;
+    margin-left: 0.5rem;
+}
