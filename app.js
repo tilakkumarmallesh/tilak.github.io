@@ -351,58 +351,44 @@ function initProjectModals() {
     });
 }
 
-// Contact form functionality
+// Enhanced Contact Form Handler for Netlify
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
 
-    if (!contactForm || !formMessage) return;
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            // Let Netlify handle the form submission
+            // Just add loading state and user feedback
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Add loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.classList.add('btn--loading');
+            submitBtn.disabled = true;
+            
+            // Show info message
+            showFormMessage('Sending your message...', 'info');
+            
+            // Note: Netlify will handle the actual form submission
+            // The form will redirect to a success page or show Netlify's default message
+        });
+    }
+}
 
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        
-        // Show loading state
-        submitBtn.innerHTML = '<span class="loading"></span> Sending...';
-        submitBtn.disabled = true;
-        
-        // Simulate form submission with realistic delay
-        try {
-            await simulateFormSubmission();
-            showFormMessage('Thank you for your message! I\'ll get back to you within 24 hours.', 'success');
-            contactForm.reset();
-        } catch (error) {
-            showFormMessage('There was an error sending your message. Please try again or contact me directly via email.', 'error');
-        } finally {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-
-    function showFormMessage(message, type) {
-        formMessage.textContent = message;
-        formMessage.className = `form-message ${type}`;
-        formMessage.style.display = 'block';
-        
-        // Auto-hide after 8 seconds
+function showFormMessage(message, type) {
+    const formMessage = document.getElementById('form-message');
+    formMessage.textContent = message;
+    formMessage.className = `form-message ${type}`;
+    formMessage.style.display = 'block';
+    
+    // Auto-hide info messages after 3 seconds
+    if (type === 'info') {
         setTimeout(() => {
             formMessage.style.display = 'none';
-        }, 8000);
-    }
-
-    function simulateFormSubmission() {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                // Simulate 95% success rate for demo
-                if (Math.random() > 0.05) {
-                    resolve();
-                } else {
-                    reject(new Error('Simulated network error'));
-                }
-            }, 1500);
-        });
+        }, 3000);
     }
 }
 
