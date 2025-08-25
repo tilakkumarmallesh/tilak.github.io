@@ -995,3 +995,250 @@ section {
 .fade-in-up {
   animation: fadeInUp 0.8s ease-out;
 }
+
+/* Career Progression & Aspirations Section */
+.career-progression {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 4rem 0;
+}
+
+.career-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+/* Timeline Styles */
+.career-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.career-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 80px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--color-surface);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.timeline-item.completed .timeline-marker {
+    background: linear-gradient(135deg, var(--color-success), #20c997);
+}
+
+.timeline-item.current .timeline-marker {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    animation: pulse 2s infinite;
+}
+
+.timeline-item.future .timeline-marker {
+    background: linear-gradient(135deg, #6f42c1, #e83e8c);
+}
+
+.timeline-icon {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.timeline-content {
+    background: var(--color-surface);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-header {
+    margin-bottom: 1rem;
+}
+
+.timeline-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.5rem 0;
+}
+
+.company {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-right: 1rem;
+}
+
+.duration {
+    background: var(--color-border);
+    color: var(--color-text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.timeline-item.completed .duration {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+}
+
+.timeline-item.current .duration {
+    background: rgba(13, 110, 253, 0.1);
+    color: var(--color-primary);
+}
+
+.timeline-item.future .duration {
+    background: rgba(111, 66, 193, 0.1);
+    color: #6f42c1;
+}
+
+.timeline-description p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.achievements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.achievement-tag {
+    background: rgba(13, 110, 253, 0.1);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.timeline-item.completed .achievement-tag {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+}
+
+.timeline-item.future .achievement-tag {
+    background: rgba(111, 66, 193, 0.1);
+    color: #6f42c1;
+}
+
+/* Aspirations Grid */
+.aspirations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.aspiration-card {
+    background: var(--color-surface);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.aspiration-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.aspiration-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.aspiration-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+.aspiration-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Pulse Animation for Current Role */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .career-timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 60px;
+    }
+    
+    .timeline-marker {
+        width: 40px;
+        height: 40px;
+        left: 0;
+    }
+    
+    .timeline-icon {
+        font-size: 1rem;
+    }
+    
+    .timeline-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .company {
+        font-size: 1rem;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .aspirations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
